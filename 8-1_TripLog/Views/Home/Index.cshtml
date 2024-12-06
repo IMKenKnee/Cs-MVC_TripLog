@@ -1,0 +1,51 @@
+﻿@* Kenny Hedlund *@
+@* Chapter 8 Trip Log *@
+@* COP.4813 *@
+
+
+<!-- Trip list populated from database -->
+@model IEnumerable<_8_1_TripLog.Models.Trip>
+
+@if (ViewData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @ViewData["Message"]
+    </div>
+}
+
+<!-- Button to AddPage1 to create new database entry -->
+<a asp-action="AddPage1" class="btn btn-primary">Add Trip</a>
+
+<!-- Table to view trip data -->
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <!-- Column headers for the table -->
+            <th>Destination</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Accommodation</th>
+            <th>Things To Do</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Iterative loop for populating data to table from database -->
+        @foreach (var trip in Model)
+        {
+            <tr>
+                <!-- Display data in table cells -->
+                <td>@trip.Destination</td>
+                <td>@trip.StartDate.ToShortDateString()</td>
+                <td>@trip.EndDate.ToShortDateString()</td>
+                <td>@trip.Accommodation</td>
+                <td>
+                    <ul>
+                        <li>@trip.ThingToDo1</li>
+                        <li>@trip.ThingToDo2</li>
+                        <li>@trip.ThingToDo3</li>
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

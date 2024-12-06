@@ -1,0 +1,33 @@
+﻿@* Kenny Hedlund *@
+@* Chapter 8 Trip Log *@
+@* COP.4813 *@
+
+@model _8_1_TripLog.Models.AddPage2ViewModel
+
+@{
+    ViewData["Title"] = "Add Page 2";
+    ViewData["SubTitle"] = $"Add Info for {TempData["Accommodation"]}";
+}
+
+<!-- Page Title -->
+<h2 class="text-center mt-3">@ViewData["SubTitle"]</h2>
+
+<!-- Form for accommodation details on second page -->
+<form asp-action="AddPage2" method="post">
+    <!-- Data Input for accommodation's phone number -->
+    <div class="form-group">
+        <label asp-for="AccommodationPhone"></label>
+        <input asp-for="AccommodationPhone" class="form-control" />
+        <span asp-validation-for="AccommodationPhone" class="text-danger"></span>
+    </div>
+    <!-- Data Input for accommodation's email address -->
+    <div class="form-group">
+        <label asp-for="AccommodationEmail"></label>
+        <input asp-for="AccommodationEmail" type="email" class="form-control" />
+        <span asp-validation-for="AccommodationEmail" class="text-danger"></span>
+    </div>
+    <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>

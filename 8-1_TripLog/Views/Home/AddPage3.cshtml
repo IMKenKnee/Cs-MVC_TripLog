@@ -1,0 +1,40 @@
+﻿@* Kenny Hedlund *@
+@* Chapter 8 Trip Log *@
+@* COP.4813 *@
+
+@model _8_1_TripLog.Models.AddPage3ViewModel
+
+@{
+    ViewData["Title"] = "Add Page 3";
+    ViewData["SubTitle"] = $"Add Things to Do in {TempData["Destination"]}";
+}
+
+<!-- Page Title -->
+<h2 class="text-center mt-3">@ViewData["SubTitle"]</h2>
+
+
+<!-- Form for ToDo list on third page -->
+<form asp-action="AddPage3" method="post">
+    <!-- Inputs for todolist data -->
+    <div class="form-group">
+        <label asp-for="ThingToDo1"></label>
+        <input asp-for="ThingToDo1" class="form-control" />
+        <span asp-validation-for="ThingToDo1" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ThingToDo2"></label>
+        <input asp-for="ThingToDo2" class="form-control" />
+        <span asp-validation-for="ThingToDo2" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ThingToDo3"></label>
+        <input asp-for="ThingToDo3" class="form-control" />
+        <span asp-validation-for="ThingToDo3" class="text-danger"></span>
+    </div>
+
+    <!-- Button to save data and complete database entry -->
+    <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
